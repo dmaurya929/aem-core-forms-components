@@ -1,0 +1,94 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2023 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+
+<sly data-sly-use.checkoutCybersource="com.adobe.cq.forms.core.components.models.form.CheckoutCybersource"
+     data-sly-use.renderer="${'checkoutcybersource.js'}"
+     data-sly-use.label="${renderer.labelPath}"
+     data-sly-use.shortDescription="${renderer.shortDescriptionPath}"
+     data-sly-use.longDescription="${renderer.longDescriptionPath}"
+     data-sly-use.questionMark="${renderer.questionMarkPath}"
+     data-sly-use.clientlib="${'/libs/granite/sightly/templates/clientlib.html'}">
+</sly>
+
+<div class="cmp-adaptiveform-checkoutcybersource"
+     data-cmp-is="adaptiveFormCheckoutCybersource"
+     data-sly-use.formstructparser="com.adobe.cq.forms.core.components.models.form.FormStructureParser"
+     data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+     id="${checkoutCybersource.id}"
+     title="${checkoutCybersource.tooltipVisible ? '' : checkoutCybersource.tooltipText}"
+     data-cmp-adaptiveformcontainer-path="${formstructparser.formContainerPath}">
+    <div class="cmp-adaptiveform-checkoutcybersource__label-container">
+        <div data-sly-call="${label.label @componentId=checkoutCybersource.id, labelValue=checkoutCybersource.label.value, labelVisible=checkoutCybersource.label.visible, labelRichText=checkoutCybersource.label.richText, bemBlock='cmp-adaptiveform-checkoutcybersource'}" data-sly-unwrap></div>
+        <div data-sly-call="${questionMark.questionMark @componentId=checkoutCybersource.id, longDescription=checkoutCybersource.description, bemBlock='cmp-adaptiveform-checkoutcybersource'}" data-sly-unwrap></div>
+    </div>
+    <div class="cmp-adaptiveform-checkoutcybersource__content-container}">
+        <div class="cmp-adaptiveform-checkoutcybersource__body">
+            <div class="cmp-adaptiveform-checkoutcybersource__content">
+                <div class="cmp-adaptiveform-checkoutcybersource__checkout-button">
+                    <div  data-sly-resource="${'checkout-button'}"></div>
+                </div>
+                <div class="cmp-adaptiveform-checkoutcybersource__itemtotal">
+                    <div  data-sly-resource="${'itemtotal'}"></div>
+                </div>
+            </div>
+            <div class="cmp-adaptiveform-checkoutcybersource__microform">
+                <div>
+                    <label for="cardholderName">Name</label>
+                    <input id="cardholderName" name="cardholderName" placeholder="Name on the card">
+                    <label id="cardNumber-label">Card Number</label>
+                    <div id="number-container" class="form-control"></div>
+                    <label for="securityCode-container">Security Code</label>
+                    <div id="securityCode-container" class="form-control"></div>
+                </div>
+                <div>
+                    <div>
+                        <label for="expMonth">Expiry month</label>
+                        <select id="expMonth">
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                            <option>04</option>
+                            <option>05</option>
+                            <option>06</option>
+                            <option>07</option>
+                            <option>08</option>
+                            <option>09</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="expYear">Expiry year</label>
+                        <select id="expYear">
+                            <option>2023</option>
+                            <option>2024</option>
+                            <option>2025</option>
+                            <option>2026</option>
+                            <option>2027</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" id="pay-button">Pay and submit</button>
+            </div>
+            <div class="cmp-adaptiveform-checkoutcybersource__payandsubmit">
+                <div  data-sly-resource="${'payandsubmit'}"></div>
+            </div>
+        </div>
+    </div>
+    <div data-sly-call="${shortDescription.shortDescription @componentId=checkoutCybersource.id, shortDescriptionVisible=checkoutCybersource.tooltipVisible, shortDescription=checkoutCybersource.tooltip, bemBlock='cmp-adaptiveform-checkoutcybersource'}" data-sly-unwrap></div>
+    <div data-sly-call="${longDescription.longDescription @componentId=checkoutCybersource.id, longDescription=checkoutCybersource.description, bemBlock='cmp-adaptiveform-checkoutcybersource'}" data-sly-unwrap></div>
+</div>

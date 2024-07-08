@@ -120,6 +120,8 @@ public final class FormConstants {
     /** The resource type for terms and conditions v1 */
     public static final String RT_FD_FORM_TERMS_AND_CONDITIONS_V1 = RT_FD_FORM_PREFIX + "termsandconditions/v1/termsandconditions";
 
+    public static final String RT_FD_FORM_CHECKOUT_CYBERSOURCE_V1 = RT_FD_FORM_PREFIX + "checkoutcybersource/v1/checkoutcybersource";
+
     public static final String FORM_FIELD_TYPE = "form";
 
     public static final String REQ_ATTR_FORMCONTAINER_PATH = "formContainerPath";
