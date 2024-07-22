@@ -30,3 +30,70 @@
 
 }
 
+.cmp-adaptiveform-checkoutcybersource__microform {
+    padding: 15px 20px;
+    border: 1px solid #a7a4a4;
+    border-radius: .25rem;
+}
+
+.cardholderName-container, .cardNumber-container, .sc-container {
+    display: flex;
+    flex-direction: column;
+    margin: .25rem 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+.expirydate-container {
+    display: flex;
+    flex-direction: row;
+    margin: .25rem 0;
+    font-size: 1rem;
+    color: #666;
+    gap: 30px;
+}
+
+#cardholderName, #number-container, #securityCode-container, #expMonth, #expYear {
+    color: #666;
+    border: 1px solid #666;
+    border-radius: .25rem;
+    height: 40px;
+    margin-top: 10px;
+    padding: 0 10px;
+    font-size: 1rem;
+}
+
+.expMonth-container, .expYear-container {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    margin: .25rem 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px
+}
+
+#pay-button, .cancel {
+    cursor: pointer;
+    color: #666;
+    background: #fff;
+    border: 2px solid #666;
+    border-radius: 1.5rem;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+}
+
+.cmp-adaptiveform-checkoutcybersource__payandsubmit {
+    visibility: hidden;
+}
+
+/* better css for this */
+.cmp-adaptiveform-container__wrapper {
+    position: relative;
+}
+

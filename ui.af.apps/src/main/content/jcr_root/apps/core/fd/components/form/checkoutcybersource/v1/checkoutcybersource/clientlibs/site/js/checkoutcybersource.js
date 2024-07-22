@@ -55,7 +55,10 @@
             this.element.parentElement.style.width = "100%";
             this.element.parentElement.style.height = "100%";
             this.element.parentElement.style.backgroundColor = "white";
+            this.element.parentElement.style.zIndex = 1000;
+            this.element.parentElement.style.marginTop = "50px";
             this.getMicroform().style.display = "block";
+            this._model.items.find(m => m.name === "checkout").visible = false;
             const captureContext = await fetch("http://localhost:8080/api/capture-context", {
                 method: 'POST',
                 headers: {
@@ -74,7 +77,6 @@
             script.src = resp.clientVersion;
             script.onload = this.renderMicroform.bind(this, resp);
             document.body.appendChild(script);
-
         }
 
         setupElement() {
@@ -94,6 +96,8 @@
             const cardholderName = this.element.querySelector('#cardholderName');
             const expMonth = this.element.querySelector('#expMonth');
             const expYear = this.element.querySelector('#expYear');
+
+            const cancelButton = this.element.querySelector('.action-buttons .cancel');
 
             const that = this;
             payButton.addEventListener('click', function() {
@@ -130,6 +134,15 @@
                     }
                 });
             });
+
+            cancelButton.addEventListener('click', function() {
+                that.element.parentElement.style.position = "inherit";
+                that.element.parentElement.style.width = "inherit";
+                that.element.parentElement.style.height = "inherit";
+                that.element.parentElement.style.zIndex = 0;
+                that.getMicroform().style.display = "none";
+                that._model.items.find(m => m.name === "checkout").visible = true;
+            })
         }
 
 

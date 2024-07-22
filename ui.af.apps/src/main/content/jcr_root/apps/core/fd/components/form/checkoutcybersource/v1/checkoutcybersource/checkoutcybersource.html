@@ -34,27 +34,26 @@
         <div data-sly-call="${label.label @componentId=checkoutCybersource.id, labelValue=checkoutCybersource.label.value, labelVisible=checkoutCybersource.label.visible, labelRichText=checkoutCybersource.label.richText, bemBlock='cmp-adaptiveform-checkoutcybersource'}" data-sly-unwrap></div>
         <div data-sly-call="${questionMark.questionMark @componentId=checkoutCybersource.id, longDescription=checkoutCybersource.description, bemBlock='cmp-adaptiveform-checkoutcybersource'}" data-sly-unwrap></div>
     </div>
-    <div class="cmp-adaptiveform-checkoutcybersource__content-container}">
+    <div class="cmp-adaptiveform-checkoutcybersource__content-container">
         <div class="cmp-adaptiveform-checkoutcybersource__body">
-            <div class="cmp-adaptiveform-checkoutcybersource__content">
-                <div class="cmp-adaptiveform-checkoutcybersource__checkout-button">
-                    <div  data-sly-resource="${'checkout-button'}"></div>
-                </div>
-                <div class="cmp-adaptiveform-checkoutcybersource__itemtotal">
-                    <div  data-sly-resource="${'itemtotal'}"></div>
-                </div>
+            <div class="cmp-adaptiveform-checkoutcybersource__itemtotal">
+                <div  data-sly-resource="${'itemtotal'}"></div>
             </div>
             <div class="cmp-adaptiveform-checkoutcybersource__microform">
-                <div>
+                <div class="cardholderName-container">
                     <label for="cardholderName">Name</label>
                     <input id="cardholderName" name="cardholderName" placeholder="Name on the card">
+                </div>
+                <div class="cardNumber-container">
                     <label id="cardNumber-label">Card Number</label>
                     <div id="number-container" class="form-control"></div>
+                </div>
+                <div class="sc-container">
                     <label for="securityCode-container">Security Code</label>
                     <div id="securityCode-container" class="form-control"></div>
                 </div>
-                <div>
-                    <div>
+                <div class="expirydate-container">
+                    <div class="expMonth-container">
                         <label for="expMonth">Expiry month</label>
                         <select id="expMonth">
                             <option>01</option>
@@ -71,7 +70,7 @@
                             <option>12</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="expYear-container">
                         <label for="expYear">Expiry year</label>
                         <select id="expYear">
                             <option>2023</option>
@@ -82,7 +81,19 @@
                         </select>
                     </div>
                 </div>
-                <button type="button" id="pay-button">Pay and submit</button>
+                <div class="action-buttons">
+                    <button type="button" class="cancel">Reset</button>
+                    <button type="button" id="pay-button">Pay and submit</button>
+                </div>
+
+            </div>
+            <div class="cmp-adaptiveform-checkoutcybersource__content">
+<!--                <div class="cmp-adaptiveform-checkoutcybersource__itemtotal">-->
+<!--                    <div  data-sly-resource="${'itemtotal'}"></div>-->
+<!--                </div>-->
+                <div class="cmp-adaptiveform-checkoutcybersource__checkout-button">
+                    <div  data-sly-resource="${'checkout-button'}"></div>
+                </div>
             </div>
             <div class="cmp-adaptiveform-checkoutcybersource__payandsubmit">
                 <div  data-sly-resource="${'payandsubmit'}"></div>

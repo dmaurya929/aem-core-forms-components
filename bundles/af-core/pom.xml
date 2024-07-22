@@ -88,8 +88,20 @@
                         <Import-Package>
                             javax.annotation;version=0.0.0,
                             com.adobe.cq.wcm.core.components.models;version="[12.0.0,13.0.0)",
+                            android.app;resolution:=optional,
+                            android.os;resolution:=optional,
+                            lombok;resolution:=optional,
                             *
                         </Import-Package>
+<!--                        <Embed-Dependency>-->
+<!--                            cybersource-rest-client-java;scope=compile|runtime,-->
+<!--                            java-jwt;scope=compile|runtime,-->
+<!--                            lombok;scope=compile|runtime,-->
+<!--&lt;!&ndash;                            AuthenticationSdk;scope=compile|runtime,&ndash;&gt;-->
+<!--&lt;!&ndash;                            okhttp;scope=compile|runtime,&ndash;&gt;-->
+<!--&lt;!&ndash;                            lombok;scope=compile|runtime&ndash;&gt;-->
+<!--                        </Embed-Dependency>-->
+<!--                        <Embed-Transitive>true</Embed-Transitive>-->
                     </instructions>
                 </configuration>
                 <dependencies>
@@ -98,6 +110,17 @@
                         <artifactId>org.apache.sling.bnd.models</artifactId>
                         <version>1.0.0</version>
                     </dependency>
+<!--                    <dependency>-->
+<!--                        <groupId>com.cybersource</groupId>-->
+<!--                        <artifactId>AuthenticationSdk</artifactId>-->
+<!--                        <version>0.0.31</version>-->
+<!--                    </dependency>-->
+<!--                    <dependency>-->
+<!--                        <groupId>com.squareup.okhttp3</groupId>-->
+<!--                        <artifactId>okhttp</artifactId>-->
+<!--                        <version>4.12.0</version>-->
+<!--                    </dependency>-->
+
                 </dependencies>
             </plugin>
 
@@ -114,6 +137,37 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>10</source>
+                    <target>10</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <filters>
+                                <!-- Add any filters if needed -->
+                            </filters>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <shadedClassifierName>shaded</shadedClassifierName>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -658,6 +712,38 @@
             <artifactId>org.apache.sling.testing.caconfig-mock-plugin</artifactId>
             <version>1.3.2</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.cybersource</groupId>
+            <artifactId>cybersource-rest-client-java</artifactId>
+            <version>0.0.53</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.18.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.16.1</version> <!-- You can use the latest version as per your requirement -->
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.16.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.16.1</version>
         </dependency>
     </dependencies>
 
